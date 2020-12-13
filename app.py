@@ -27,7 +27,7 @@ def submitImage():
     filename = secure_filename(image.filename)
     image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     img = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    text = pytesseract.image_to_string(img, lang="tur")
+    text = pytesseract.image_to_string(img)
     f = open(os.path.join(app.config['UPLOAD_FOLDER'], filename)+'.txt','w')
     f.write(text)
     f.close()
