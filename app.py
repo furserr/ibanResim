@@ -7,8 +7,11 @@ from PIL import ImageFilter
 from PIL import Image
 
 import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
+try:
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
+except Exception as e:
+    pass
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './media'
