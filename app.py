@@ -5,7 +5,6 @@ import os
 import pytesseract
 from PIL import ImageFilter
 from PIL import Image
-import cv2
 
 import sys
 try:
@@ -27,10 +26,8 @@ def submitImage():
     text = ''
     filename = secure_filename(image.filename)
     image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-    text = pytesseract.image_to_string(thresh)
+    img = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    text = pytesseract.image_to_string(img)
     f = open(os.path.join(app.config['UPLOAD_FOLDER'], filename)+'.txt','w')
     f.write(text)
     f.close()
