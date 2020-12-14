@@ -31,7 +31,7 @@ def submitImage():
     f = open(os.path.join(app.config['UPLOAD_FOLDER'], filename)+'.txt','w')
     f.write(text)
     f.close()
-    return render_template('textFile.html',text=text,filename=f)
+    return render_template('index.html',text=text,filename=f)
 
 
 if __name__ == '__main__':
