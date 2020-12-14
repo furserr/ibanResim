@@ -30,7 +30,7 @@
                   <form class="form" action="/submitImage/" method="POST" enctype="multipart/form-data">
                     <div class="input-group">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="ocrImage"
+                      <input type="file" class="custom-file-input" id="ocrImage" name="ocrImage"
                         aria-describedby="inputGroupFileAddon01" src="" alt="" onchange='showImage(event)'>
                       <label class="custom-file-label" for="ocrImage">Resim Seç</label>
                     </div>
@@ -50,7 +50,6 @@
 
             <div style="justify-content:center"  class="row mx-lg-5 mx-md-3">
               <div class="form-group purple-border">
-                <label for="exampleFormControlTextarea4">Colorful border</label>
                 <textarea class="form-control" id="textValue" readonly name="result" cols="60" rows="5">{{ text }}</textarea>
                   <form method="get" accept-charset="utf-8">
                       <button type="button" class='btn btn-info' onclick='downloadText()'>İNDİR</button>
