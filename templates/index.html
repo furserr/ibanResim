@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Index | OCR Application</title>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -24,34 +25,33 @@
               <br>
               <br>
 
-              <div class="row mx-lg-5 mx-md-3">
+              <div style="align-items:center"  class="row mx-lg-5 mx-md-3">
                 <div class="col-md-6 mb-4">
-
                   <form class="form" action="/submitImage/" method="POST" enctype="multipart/form-data">
-                      <div class='row'>
-                          <div class='col-xs-4'>
-                              <label for='ocrImage'>Resim Ekle: </label>
-                              <input class='form-control' type="file" name="ocrImage" id="ocrImage" src="" alt="" onchange='showImage(event)'>
+                    <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ocrImage"
+                        aria-describedby="inputGroupFileAddon01" src="" alt="" onchange='showImage(event)'>
+                      <label class="custom-file-label" for="ocrImage">Resim Seç</label>
+                    </div>
+                  </div>
                               <br>
                               <input class='btn btn-success' type="submit" value="Gönder" />
-                          </div>
-                      </div>
                   </form>
                	</div>
                	<div class="col-md-6 mb-4">
-                  <div class='row'>
-                    <div class='col-xs-4'>
                         <img src='' id='uploadedImage' width='200' alt='no image selected'>
-                    </div>
-                  </div>
                 </div>
               </div>
 
             </section>
             <!--Section: Content-->
+            <hr>
 
-            <div class="row mx-lg-5 mx-md-3">
-                  <textarea id='textValue' readonly name="result" value=''>{{ text }}</textarea>
+            <div style="justify-content:center"  class="row mx-lg-5 mx-md-3">
+              <div class="form-group purple-border">
+                <label for="exampleFormControlTextarea4">Colorful border</label>
+                <textarea class="form-control" id="textValue" readonly name="result" cols="60" rows="5">{{ text }}</textarea>
                   <form method="get" accept-charset="utf-8">
                       <button type="button" class='btn btn-info' onclick='downloadText()'>İNDİR</button>
                   </form>
